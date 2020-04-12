@@ -1,0 +1,27 @@
+<!-- <p class="text-center text-muted" *ngIf="!pokemonCards.length">
+  Sua pesquisa não encontrou nenhuma foto. Faça uma nova busca.
+</p> -->
+<div class="container">
+
+  <ol class="list-unstyled">
+    <li *ngFor="let cols of rows" class="row no-gutters">
+      <div *ngFor="let pokemonCard of cols" class="col-lg-3 col-12"   >
+        <bp-card [title]="pokemonCard.name">
+          <bp-pokemon-card
+            cursorPointer
+            [imageUrl]="pokemonCard.imageUrl"
+            [name]="pokemonCard.name">
+          </bp-pokemon-card>
+        <div class="text-center p-1">
+
+          <h5 class="card-title">{{ pokemonCard.name }}</h5>
+          <!-- <p class="card-text"> <label for=""> ID: </label> {{ pokemonCard.id }} - </p> -->
+          <p class="type + {{pokemonCard.types}}">{{ pokemonCard.types }}</p>
+          <!-- <a [routerLink]="['pokemonCard.name']">Veja Detalhes</a> -->
+        </div>
+      </bp-card>
+    </div>
+  </li>
+</ol>
+
+</div>

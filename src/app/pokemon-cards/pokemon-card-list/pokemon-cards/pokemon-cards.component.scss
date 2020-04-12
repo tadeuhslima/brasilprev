@@ -1,0 +1,34 @@
+
+// USO DE VARIÁVEIS NO SCSS
+$color-Colorless: gray;
+$color-Fighting: orange;
+$color-Fire: red;
+$color-Grass: green;
+$color-Water: blue;
+$color-Psychic: purple;
+$color-Lightning: yellow;
+$color-Darkness: black;
+$color-Dragon: red;
+$color-Metal: gray;
+$color-Fairy: pink;
+
+.type{
+  border-radius: 30px;
+  width: fit-content;
+  padding: 2px 15px;
+  margin: auto;
+}
+
+.Colorless{background-color: $color-Colorless;}
+.Darkness{background-color: $color-Darkness;}
+.Dragon{background-color: $color-Dragon;}
+.Fairy{background-color: $color-Fairy;}
+.Fighting{background-color: $color-Fighting;}
+.Fire{background-color: $color-Fire;}
+.Grass{background-color: $color-Grass;}
+.Lightning{background-color: $color-Lightning;}
+.Metal{background-color: $color-Metal;}
+.Water{background-color: $color-Water;}
+.Psychic{background-color: $color-Psychic;}
+
+

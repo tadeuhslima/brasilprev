@@ -1,0 +1,13 @@
+<bp-search
+  (onTyping)="filter = $event"
+  [value]="filter">
+</bp-search>
+
+<bp-pokemon-cards
+  [pokemonCards]="pokemonCards | filterByName: filter">
+</bp-pokemon-cards>
+
+<bp-load-button
+  (click)="load()"
+  [hasMore]="hasMore">
+</bp-load-button>
