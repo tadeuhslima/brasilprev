@@ -1,5 +1,5 @@
 import { Component, OnInit, ɵCodegenComponentFactoryResolver } from '@angular/core';
-import { PokemonCard, Cards } from '../pokemon-card/pokemon-card';
+import { PokemonCard } from '../pokemon-card/pokemon-card';
 import { PokemonCardService } from '../pokemon-card/pokemon-card.service';
 
 
@@ -11,7 +11,7 @@ import { PokemonCardService } from '../pokemon-card/pokemon-card.service';
 export class PokemonCardListComponent implements OnInit {
 
   pokemonCards: PokemonCard[] = [];
-  cards: Cards[] = [];
+
   filter: string = '';
   hasMore: boolean = true;
   currentPage: number = 1;
