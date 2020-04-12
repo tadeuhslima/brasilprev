@@ -6,7 +6,7 @@ import { PokemonCard } from '../pokemon-card/pokemon-card';
 import { PokemonCardService } from '../pokemon-card/pokemon-card.service';
 
 @Injectable({providedIn: 'root'})
-export class PokemonCardListResolver implements Resolve<Observable<PokemonCard[]>> {
+export class PokemonCardListResolver implements Resolve<Observable<PokemonCard>> {
 
   constructor(private service: PokemonCardService){}
 

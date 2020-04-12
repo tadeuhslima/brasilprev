@@ -11,7 +11,7 @@ export class PokemonCardService {
 
   listPokemonCards(){
     return this.http
-      .get<PokemonCard[]>(API)
+      .get<PokemonCard>(API)
   }
 
   listPokemonCardsPaginated(page: number){

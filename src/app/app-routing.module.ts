@@ -15,9 +15,9 @@ const routes: Routes = [
   {
     path: 'pokemon',
     component: PokemonCardListComponent,
-    resolve: {
-      PokemonCards: PokemonCardListResolver
-    },
+    // resolve: {
+    //   PokemonCards: PokemonCardListResolver
+    // },
   },
   // {
   //   path: '/:pokemonName',

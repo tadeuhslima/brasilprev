@@ -9,24 +9,26 @@ import { Router } from '@angular/router';
 })
 export class PokemonCardsComponent implements OnChanges {
 
-  @Input() pokemonCards: PokemonCard[] = [];
+  @Input() pokemonCards;
   rows: any[] = [];
 
-  constructor( private router: Router) { }
+  constructor( private router: Router) {}
 
   ngOnChanges(changes: SimpleChanges): void {
 
+    console.log(this.pokemonCards)
+    
     if (changes.pokemonCards) {
       this.rows = this.groupColumns(this.pokemonCards);
     }
   }
 
 
-  groupColumns(pokemonCards: PokemonCard[]) {
+  groupColumns(pokemonCards: PokemonCard) {
     const newRows = [];
 
-      for(let index = 0; index < pokemonCards.length; index+=4) {
-          newRows.push(pokemonCards.slice(index, index + 4));
+      for(let index = 0; index < pokemonCards.cards.length; index+=4) {
+          newRows.push(pokemonCards.cards.slice(index, index + 4));
       }
       return newRows;
   }

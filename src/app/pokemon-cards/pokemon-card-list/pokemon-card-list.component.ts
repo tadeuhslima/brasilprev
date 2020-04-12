@@ -10,7 +10,7 @@ import { PokemonCardService } from '../pokemon-card/pokemon-card.service';
 
 export class PokemonCardListComponent implements OnInit {
 
-  pokemonCards: PokemonCard[] = [];
+  pokemonCards: PokemonCard;
 
   filter: string = '';
   hasMore: boolean = true;
@@ -21,12 +21,12 @@ export class PokemonCardListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.PokemonCardService
-    //   .listPokemonCards()
-    //   .subscribe(pokemonCards => {
-    //     this.pokemonCards = pokemonCards.cards;
-    //     pokemonCards.cards.sort((a, b) => a.name.localeCompare(b.name));
-    //   });
+    this.PokemonCardService
+      .listPokemonCards()
+      .subscribe(res => {
+        this.pokemonCards = res;
+        // pokemonCards.cards.sort((a, b) => a.name.localeCompare(b.name));
+      });
   }
 
   load(){
