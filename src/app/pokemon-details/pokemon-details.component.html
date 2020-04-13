@@ -1,0 +1,86 @@
+<div class="container mt-3">
+  <div class="row text-center mb-5 ">
+    <h3 class="mx-auto">Pokemon Detail's</h3>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-12">
+      <img
+        class="img-thumbnail"
+        src={{pokemonDetail.imageUrlHiRes}}
+        alt={{pokemonDetail.name}}
+      >
+    </div>
+    <div class="col-lg-8 col-12">
+      <div class="header d-flex">
+        <span class="font-weight-light"> Nome (id) </span><h4> {{pokemonDetail.name}}  <span>({{pokemonDetail.id}})</span></h4>
+      </div>
+      <div class="types mt-3 d-flex" *ngFor="let type of pokemonDetail.types">
+        <span class="font-weight-light"> Tipo(s): </span>
+        <p class="ml-5 type {{(type ? type : 'unset' )}}">{{ (type ? type : 'Sem tipo' ) }}</p>
+      </div>
+      <div class="types mt-3 d-flex" *ngIf="!pokemonDetail.types">
+        <span class="font-weight-light"> Tipo(s): </span>
+        <p class="ml-5">Esta carta Não possui tipo.</p>
+      </div>
+      <div class="attacks mt-2 table-responsive " >
+        <h3 class="text-center">Ataque</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Custo (Qtde)</th>
+              <th scope="col">Ataque</th>
+              <th scope="col">Descrição</th>
+              <th scope="col">Dano</th>
+            </tr>
+          </thead>
+          <tbody >
+            <tr *ngFor="let attack of pokemonDetail.attacks" >
+              <td>{{attack.cost}} ({{attack.convertedEnergyCost}})</td>
+              <td>{{ attack.name }}</td>
+              <td>{{ (attack.text) ? attack.text : 'Sem decrição' }}</td>
+              <td>{{ attack.damage }}</td>
+            </tr>
+          </tbody>
+          <tbody *ngIf="!pokemonDetail.attacks" >
+            <tr class="text-center">
+              <td colspan="4">
+                <h5>Essa carta não possui Ataque.</h5>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-12 d-flex">
+        <div class="col-6" *ngFor="let resistance of pokemonDetail.resistances">
+          <h5 class="text-center">Resistência</h5>
+          <div class="d-block">
+            <span class="font-weight-light"> Tipo(s): </span>{{resistance.type}}
+          </div>
+          <div class="d-block">
+            <span class="font-weight-light"> Valor: </span>{{resistance.value}}
+          </div>
+
+        </div>
+        <div class="col-6" *ngIf="!pokemonDetail.resistances">
+          <p>Essa carta não possui Resistência.</p>
+        </div>
+        <div class="col-6" *ngFor="let weaknesse of pokemonDetail.weaknesses">
+          <h5 class="text-center">Fraqueza</h5>
+          <div class="d-block">
+            <span class="font-weight-light"> Tipo(s): </span> {{weaknesse.type}}
+          </div>
+          <div class="d-block">
+            <span class="font-weight-light"> Valor: </span>{{weaknesse.value}}
+          </div>
+        </div>
+        <div class="col-6" *ngIf="!pokemonDetail.weaknesses">
+          <p>Essa carta não possui Fraqueza.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center p-5">
+    <button (click)="goBack()" class="btn btn-primary">Voltar</button>
+  </div>
+
+</div>

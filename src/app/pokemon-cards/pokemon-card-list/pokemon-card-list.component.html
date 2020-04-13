@@ -4,7 +4,8 @@
 </bp-search>
 
 <bp-pokemon-cards
-  [pokemonCards]="pokemonCards">
+  [pokemonCards]="pokemonCards | filterByName: filter"
+>
 </bp-pokemon-cards>
 
 <bp-load-button

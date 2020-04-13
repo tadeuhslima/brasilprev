@@ -5,16 +5,21 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PokemonCardsModule } from './pokemon-cards/pokemon-cards.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoreModule } from './core/core.module';
+import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PokemonDetailsComponent
   ],
   imports: [
     BrowserModule,
     PokemonCardsModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
+    CoreModule,
+
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,10 @@
+.header {
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid lightgray;
+}
+
+
 // USO DE VARIÁVEIS NO SCSS
 $color-Colorless: gray;
 $color-Fighting: orange;
@@ -13,9 +20,7 @@ $color-Fairy: pink;
 
 .type{
   border-radius: 30px;
-  width: fit-content;
   padding: 0px 15px 2px 15px;
-  margin: auto;
   font-weight: 700;
   color: #FFFFFF;
 }

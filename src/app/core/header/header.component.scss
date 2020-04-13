@@ -1,0 +1,15 @@
+@media (max-width: 540px) {
+
+  @mixin justify--center {
+    justify-content: center;
+  }
+
+  .mixin-justify {
+    @include justify--center
+  }
+
+  .navbar-brand{
+    margin: 0;
+  }
+
+}

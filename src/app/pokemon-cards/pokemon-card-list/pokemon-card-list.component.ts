@@ -11,10 +11,10 @@ import { PokemonCardService } from '../pokemon-card/pokemon-card.service';
 export class PokemonCardListComponent implements OnInit {
 
   pokemonCards: PokemonCard;
-
   filter: string = '';
   hasMore: boolean = true;
   currentPage: number = 1;
+
 
   constructor (
     private PokemonCardService: PokemonCardService
@@ -24,22 +24,25 @@ export class PokemonCardListComponent implements OnInit {
     this.PokemonCardService
       .listPokemonCards()
       .subscribe(res => {
-        this.pokemonCards = res;
-        // pokemonCards.cards.sort((a, b) => a.name.localeCompare(b.name));
+        const sort: any =  res.cards.sort((a, b) => a.name.localeCompare(b.name))
+        this.pokemonCards = {cards: sort};
       });
   }
 
   load(){
-  //   console.log('teste')
-  //   this.PokemonCardService
-  //     .listPokemonCardsPaginated(++this.currentPage)
-  //     .subscribe(pokemonCards => {
-  //       this.filter = '';
-  //       this.pokemonCards = this.pokemonCards.concat(pokemonCards.cards);
-  //       if (!this.pokemonCards.length) {
-  //         this.hasMore = false;
-  //       }
-  //     });
+    this.PokemonCardService
+    .listPokemonCardsPaginated(++this.currentPage)
+    .subscribe(res => {
+      this.filter = '';
+      let result: any = '';
+      Object.entries(res).forEach(([key, value]) => {
+        result = { ...result , cards: value }
+      });
+      result = { cards : result.cards.concat(this.pokemonCards.cards)}
+      const sort: any =  result.cards.sort((a, b) => a.name.localeCompare(b.name))
+      this.pokemonCards = {cards: sort};
+
+    });
   }
 
 }

@@ -6,19 +6,22 @@ import { PokemonCard } from '../pokemon-card/pokemon-card';
 @Pipe({ name: 'filterByName' })
 export class FilterByName {
 
-  transform(pokemonCards: PokemonCard[] , desciptionQuery: string) {
-  //   desciptionQuery = desciptionQuery
-  //     .trim()
-  //     .toLowerCase()
-
-  //     // tslint:disable-next-line: align
-  //     if(desciptionQuery){
-  //       return pokemonCards.filter(
-  //         pokemonCard => pokemonCard.name.toLowerCase().includes(desciptionQuery)
-  //       );
-  //     } else {
-  //       return pokemonCards;
-  //     }
+  transform(pokemonCards: PokemonCard , desciptionQuery: string) {
+    desciptionQuery = desciptionQuery
+      .trim()
+      .toLowerCase()
+      // tslint:disable-next-line: align
+      if(desciptionQuery){
+        const filtered: any = [];
+        const filter: any =  pokemonCards.cards.filter(
+          pokemonCard => pokemonCard.name.toLowerCase().includes(desciptionQuery)
+        );
+        filtered.push({cards: filter})
+        pokemonCards = filtered[0];
+        return pokemonCards;
+      } else {
+        return pokemonCards;
+      }
   }
 
 }
